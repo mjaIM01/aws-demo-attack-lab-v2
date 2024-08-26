@@ -6,7 +6,8 @@ trigger:
   #     - app/src/*
   
 pool:
-    vmImage: ubuntu-latest
+    name: marvin
+   # vmImage: ubuntu-latest
   
 variables:
   - group: aws-demo-attack-lab-v2
@@ -29,7 +30,7 @@ stages:
               provider: 'aws'
               command: 'init'
               backendServiceAWS: '$(backendServiceAWS)'
-              backendAWSBucketName: '$(projectName)'
+              backendAWSBucketName: '$(backendAWSBucketName)'
               backendAWSKey: '$(backendAWSKey)'
               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
           - task: TerraformTaskV4@4
@@ -134,7 +135,7 @@ stages:
               provider: 'aws'
               command: 'init'
               backendServiceAWS: '$(backendServiceAWS)'
-              backendAWSBucketName: '$(projectName)'
+              backendAWSBucketName: '$(backendAWSBucketName)'
               backendAWSKey: '$(backendAWSKey)'
               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
           - task: TerraformTaskV4@4
