@@ -34,10 +34,10 @@ stages:
               backendAWSKey: '$(backendAWSKey)'
               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
           - task: TerraformTaskV4@4
-            displayName: Terraform Validate
+            displayName: Terraform Destroy
             inputs:
               provider: 'aws'
-              command: 'validate'
+              command: 'destroy'
               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
     - stage: iac_scan
       condition: always()
