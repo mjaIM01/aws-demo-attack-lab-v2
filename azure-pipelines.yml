@@ -33,15 +33,14 @@ stages:
               backendAWSBucketName: '$(backendAWSBucketName)'
               backendAWSKey: '$(backendAWSKey)'
               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
-          
           - task: TerraformTaskV4@4
-             displayName: Terraform Destroy
-             inputs:
-               provider: 'aws'
-               command: 'destroy'
-               environmentServiceNameAWS: '$(backendServiceAWS)'
-               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
-               commandOptions: '-refresh=false'
+            displayName: Terraform Destroy
+            inputs:
+              provider: 'aws'
+              command: 'destroy'
+              environmentServiceNameAWS: '$(backendServiceAWS)'
+              workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
+              commandOptions: '-refresh=false'
 
 #     - stage: iac_scan
 #       condition: always()
