@@ -6,8 +6,8 @@ trigger:
   #     - app/src/*
   
 pool:
-    name: marvin
-   # vmImage: ubuntu-latest
+    #name: marvin
+    vmImage: ubuntu-latest
   
 variables:
   - group: aws-demo-attack-lab-v2
