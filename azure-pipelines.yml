@@ -33,14 +33,8 @@ stages:
               backendAWSBucketName: '$(backendAWSBucketName)'
               backendAWSKey: '$(backendAWSKey)'
               workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
+          
           - task: TerraformTaskV4@4
-            displayName: Terraform Destroy
-            inputs:
-              provider: 'aws'
-              command: 'destroy'
-              workingDirectory: '$(System.DefaultWorkingDirectory)/$(infraPath)'
-
-- task: TerraformTaskV4@4
              displayName: Terraform Destroy
              inputs:
                provider: 'aws'
